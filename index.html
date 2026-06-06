@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treinador de Redação ENEM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="white" fill-opacity="0.15"/>
+          <path d="M10 28 L14 24 L28 10 L30 12 L16 26 L10 28Z" fill="white"/>
+          <path d="M28 10 L30 8 L32 10 L30 12Z" fill="white" fill-opacity="0.7"/>
+          <path d="M10 30 L10 28 L12 28 L10 30Z" fill="white" fill-opacity="0.5"/>
+          <path d="M12 31 L8 31" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15 31 L17 31" stroke="white" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+        </svg>
+        <div>
+          <div class="logo-title">Redação ENEM</div>
+          <div class="logo-subtitle">Treinador com Inteligência Artificial</div>
+        </div>
+      </div>
+      <div class="header-badge">Gratuito &amp; Online</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Pratique e evolua sua redação</h1>
+      <p>Escreva uma redação, envie e receba avaliação detalhada seguindo os <strong>critérios oficiais do ENEM</strong>, com feedback por competência e dicas de melhoria.</p>
+      <div class="competencias-pills">
+        <span class="pill">I · Domínio da Escrita</span>
+        <span class="pill">II · Desenvolvimento do Tema</span>
+        <span class="pill">III · Argumentação</span>
+        <span class="pill">IV · Coesão Textual</span>
+        <span class="pill">V · Proposta de Intervenção</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container main-content">
+
+    <!-- FORM CARD -->
+    <div class="card" id="formCard">
+      <div class="card-header">
+        <h2>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Escreva sua Redação
+        </h2>
+      </div>
+      <div class="card-body">
+
+        <!-- TOPIC -->
+        <div class="form-group">
+          <label for="topicSelect">Tema da Redação</label>
+          <div class="select-wrapper">
+            <select id="topicSelect" class="form-control">
+              <option value="">— Selecione um tema —</option>
+              <optgroup label="Temas Oficiais do ENEM">
+                <option value="Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil">ENEM 2023 — Invisibilidade do trabalho de cuidado da mulher</option>
+                <option value="Desafios para a valorização de comunidades e povos tradicionais no Brasil">ENEM 2022 — Valorização de povos tradicionais</option>
+                <option value="Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil">ENEM 2021 — Invisibilidade e registro civil</option>
+                <option value="O estigma associado às doenças mentais na sociedade brasileira">ENEM 2020 — Estigma das doenças mentais</option>
+                <option value="Democratização do acesso ao cinema no Brasil">ENEM 2019 — Democratização do cinema</option>
+                <option value="Manipulação do comportamento do usuário pelo controle de dados na internet">ENEM 2018 — Controle de dados na internet</option>
+                <option value="Desafios para a formação educacional de surdos no Brasil">ENEM 2017 — Formação educacional de surdos</option>
+                <option value="Caminhos para combater a intolerância religiosa no Brasil">ENEM 2016 — Intolerância religiosa</option>
+                <option value="A persistência da violência contra a mulher na sociedade brasileira">ENEM 2015 — Violência contra a mulher</option>
+                <option value="Publicidade infantil em questão no Brasil">ENEM 2014 — Publicidade infantil</option>
+              </optgroup>
+              <optgroup label="Outro">
+                <option value="custom">Tema personalizado...</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" id="customTopicGroup" style="display:none">
+          <label for="customTopic">Digite o tema:</label>
+          <input type="text" id="customTopic" class="form-control" placeholder="Ex: Os desafios da educação pública no Brasil" maxlength="200" />
+        </div>
+
+        <!-- ESSAY TEXTAREA -->
+        <div class="form-group">
+          <label for="essayText">
+            Texto da Redação
+            <span class="label-hint">(dissertativo-argumentativo)</span>
+          </label>
+          <textarea
+            id="essayText"
+            class="form-control essay-textarea"
+            placeholder="Escreva sua redação aqui...
+
+Estrutura recomendada:
+→ Introdução: apresente o contexto e sua tese
+→ 1º parágrafo de desenvolvimento: argumento com evidências
+→ 2º parágrafo de desenvolvimento: argumento com dados/exemplos
+→ Conclusão: proposta de intervenção detalhada (agente + ação + modo + finalidade)"
+            rows="18"
+            spellcheck="true"
+          ></textarea>
+          <div class="text-stats" id="textStats">
+            <div class="stat-group">
+              <div class="stat-item">
+                <span class="stat-value" id="wordCount">0</span>
+                <span class="stat-label">palavras</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="charCount">0</span>
+                <span class="stat-label">caracteres</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="lineEstimate">~0</span>
+                <span class="stat-label">linhas est.</span>
+              </div>
+            </div>
+            <div class="length-badge" id="lengthBadge">
+              <span class="badge-dot" id="badgeDot"></span>
+              <span id="lengthStatus">Muito curta</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIPS ACCORDION -->
+        <div class="accordion">
+          <button class="accordion-toggle" id="tipsToggle" type="button">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Dicas para uma boa redação ENEM
+            </span>
+            <svg class="chevron" id="tipsChevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="accordion-body" id="tipsContent">
+            <div class="tips-grid">
+              <div class="tip-item">
+                <div class="tip-number">01</div>
+                <div>
+                  <strong>Estrutura em 4 parágrafos</strong>
+                  <p>Introdução (contexto + tese), 1º desenvolvimento, 2º desenvolvimento, conclusão com proposta.</p>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-number">02</div>
+                <div>
+                  <strong>Tamanho ideal: 25–30 linhas</strong>
+                  <p>Equivalente a ~300–420 palavras. Redações muito curtas (menos de 7 linhas) são zeradas.</p>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-number">03</div>
+                <div>
+                  <strong>Proposta de intervenção completa</strong>
+                  <p>Inclua: Agente + Ação + Modo/Meio + Finalidade + Detalhamento. Valeria 40 pontos extras.</p>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-number">04</div>
+                <div>
+                  <strong>Repertório sociocultural</strong>
+                  <p>Use citações, dados, leis, filmes, filósofos ou eventos históricos para embasar seus argumentos.</p>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-number">05</div>
+                <div>
+                  <strong>Coesão textual</strong>
+                  <p>Use conectivos variados: "No entanto", "Ademais", "Dessa forma", "Com efeito", "Portanto".</p>
+                </div>
+              </div>
+              <div class="tip-item">
+                <div class="tip-number">06</div>
+                <div>
+                  <strong>Evite estes erros graves</strong>
+                  <p>Fuga total do tema, cópia dos textos motivadores, violação de direitos humanos, texto incompleto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button class="btn-submit" id="submitBtn" disabled>
+          <span id="submitBtnContent">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+            Avaliar Redação
+          </span>
+        </button>
+        <p class="disclaimer">Avaliação gerada por IA com base nos critérios oficiais do ENEM/INEP. Use como ferramenta de treino.</p>
+
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="card loading-card" id="loadingSection" style="display:none">
+      <div class="loading-inner">
+        <div class="spinner-ring"></div>
+        <h3>Avaliando sua redação...</h3>
+        <p>Nossa IA está analisando cada competência do ENEM</p>
+        <div class="loading-steps" id="loadingSteps">
+          <div class="loading-step" data-step="1">
+            <span class="step-icon">○</span>
+            <span>Verificando domínio da língua portuguesa</span>
+          </div>
+          <div class="loading-step" data-step="2">
+            <span class="step-icon">○</span>
+            <span>Avaliando compreensão e desenvolvimento do tema</span>
+          </div>
+          <div class="loading-step" data-step="3">
+            <span class="step-icon">○</span>
+            <span>Analisando seleção e organização de argumentos</span>
+          </div>
+          <div class="loading-step" data-step="4">
+            <span class="step-icon">○</span>
+            <span>Verificando coesão e mecanismos linguísticos</span>
+          </div>
+          <div class="loading-step" data-step="5">
+            <span class="step-icon">○</span>
+            <span>Avaliando proposta de intervenção</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="resultsSection" style="display:none">
+
+      <!-- Score Banner -->
+      <div class="results-banner" id="resultsBanner">
+        <div class="banner-left">
+          <div class="banner-label">Pontuação Final</div>
+          <div class="banner-score">
+            <span class="score-number" id="scoreFinal">—</span>
+            <span class="score-max">/1000</span>
+          </div>
+          <div class="level-badge" id="levelBadge">—</div>
+          <div class="fuga-aviso" id="fugaAviso" style="display:none">
+            ⚠️ Possível fuga ao tema detectada — verifique se sua redação aborda o tema proposto.
+          </div>
+          <div class="low-score-alert" id="lowScoreAlert" style="display:none">
+            <div class="lsa-icon" id="lsaIcon">📉</div>
+            <div>
+              <strong id="lsaTitle">Pontuação baixa</strong>
+              <p id="lsaMessage"></p>
+            </div>
+          </div>
+        </div>
+        <div class="banner-right">
+          <svg class="score-gauge" id="scoreGauge" viewBox="0 0 160 160">
+            <circle cx="80" cy="80" r="66" fill="none" stroke="#ffffff22" stroke-width="14"/>
+            <circle id="gaugeArc" cx="80" cy="80" r="66" fill="none" stroke="white" stroke-width="14"
+              stroke-dasharray="414.69" stroke-dashoffset="414.69"
+              stroke-linecap="round"
+              transform="rotate(-90 80 80)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- General Comment -->
+      <div class="general-comment card" id="generalComment" style="display:none">
+        <div class="comment-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <strong>Comentário Geral</strong>
+          <p id="commentText"></p>
+        </div>
+      </div>
+
+      <!-- Competências Grid -->
+      <div class="competencias-result-grid" id="competenciasGrid">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Score breakdown table -->
+      <div class="card score-breakdown" id="scoreBreakdown">
+        <h3>Resumo de Pontuação</h3>
+        <div class="breakdown-table" id="breakdownTable">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="result-actions">
+        <button class="btn-outline" id="newEssayBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.96"/></svg>
+          Nova Redação
+        </button>
+        <button class="btn-primary-action" id="printBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Imprimir / Salvar PDF
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ERROR MESSAGE -->
+    <div class="error-card card" id="errorSection" style="display:none">
+      <div class="error-icon">⚠️</div>
+      <h3>Erro ao avaliar</h3>
+      <p id="errorMessage">Não foi possível conectar ao servidor de avaliação.</p>
+      <button class="btn-outline" id="retryBtn">Tentar novamente</button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Treinador de Redação ENEM</strong> — Ferramenta de apoio ao estudo com IA</p>
+      <p>Os critérios de avaliação são baseados nas diretrizes oficiais do ENEM/INEP. Este é um simulador educacional.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
